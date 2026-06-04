@@ -4,7 +4,7 @@ La aplicación está construida con Angular 17, aprovechando herramientas modern
 
 ## 🚀 Enlaces
 - **Live Demo:** [Pega tu link de Vercel aquí]
-- **Repositorio:** [Pega tu link de GitHub aquí]
+- **Repositorio:** https://github.com/claucardona34/MeteoDashboard
 
 ---
 

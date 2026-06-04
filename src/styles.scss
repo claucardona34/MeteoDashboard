@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Color de fondo base para toda la aplicación */
+body {
+  @apply bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white min-h-screen antialiased;
+  margin: 0;
+}

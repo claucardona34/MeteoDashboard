@@ -1,0 +1,97 @@
+ <main class="max-w-3xl mx-auto p-4 md:p-8">
+      <a routerLink="/dashboard" class="text-slate-400 hover:text-white mb-8 inline-flex items-center gap-2 transition-colors">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  viewBox="0 0 24 24"
+  stroke-width="2"
+  stroke="currentColor"
+  class="w-5 h-5"
+>
+  <path
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+  />
+</svg> Volver al Dashboard
+      </a>
+
+      @if (weatherService.currentWeather(); as weather) {
+        <app-ui-card [title]="'Análisis Detallado: ' + weather.name">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
+
+            <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-700/50 flex flex-col items-center justify-center">
+              <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  viewBox="0 0 24 24"
+  stroke-width="1.5"
+  stroke="currentColor"
+  class="w-10 h-10 text-cyan-400 mb-3"
+>
+  <path
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    d="M3 8h11a3 3 0 100-6M3 16h15a3 3 0 110 6M3 12h18"
+  />
+</svg>
+              <h4 class="text-slate-400 text-sm uppercase tracking-wider mb-2 font-semibold">Viento</h4>
+              <p class="text-3xl font-bold text-white">{{ weather.wind.speed }} <span class="text-xl text-slate-500 font-normal">m/s</span></p>
+            </div>
+
+            <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-700/50 flex flex-col items-center justify-center">
+             <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="currentColor"
+  viewBox="0 0 24 24"
+  class="w-10 h-10 text-blue-400 mb-3"
+>
+  <path d="M12 2s-6 6.2-6 11a6 6 0 1012 0c0-4.8-6-11-6-11z"/>
+</svg>
+              <h4 class="text-slate-400 text-sm uppercase tracking-wider mb-2 font-semibold">Humedad</h4>
+              <p class="text-3xl font-bold text-white">{{ weather.main.humidity }}<span class="text-xl text-slate-500 font-normal">%</span></p>
+            </div>
+
+            <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-700/50 flex flex-col items-center justify-center">
+              <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  viewBox="0 0 24 24"
+  stroke-width="1.5"
+  stroke="currentColor"
+  class="w-10 h-10 text-amber-400 mb-3"
+>
+  <circle
+    cx="12"
+    cy="13"
+    r="8"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    d="M12 13l4-2"
+  />
+  <path
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    d="M12 3v2"
+  />
+</svg>
+              <h4 class="text-slate-400 text-sm uppercase tracking-wider mb-2 font-semibold">Presión</h4>
+              <p class="text-3xl font-bold text-white">{{ weather.main.pressure }} <span class="text-xl text-slate-500 font-normal">hPa</span></p>
+            </div>
+
+            <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-700/50 flex flex-col items-center justify-center">
+              <span class="block text-4xl mb-3"><app-weather-icon
+              [condition]="weather.weather[0].main">
+              </app-weather-icon></span>
+              <h4 class="text-slate-400 text-sm uppercase tracking-wider mb-2 font-semibold">Condición</h4>
+              <p class="text-2xl font-bold text-white capitalize text-center">{{ weather.weather[0].description }}</p>
+            </div>
+
+          </div>
+        </app-ui-card>
+      }
+    </main>
